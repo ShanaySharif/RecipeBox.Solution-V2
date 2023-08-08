@@ -9,8 +9,6 @@ namespace RecipeBox.Models
 
         [Required(ErrorMessage = "This field cannot be empty. Please try again.")]
         public string Title { get; set; }
-
-        // Navigation property to represent the many-to-many relationship
         public List<RecipeTag> JoinEntities { get; set; }
 
         public Account User { get; set; }

@@ -1,42 +1,3 @@
-<!-- @{
-  Layout = "_Layout";
-}
-
-@using RecipeBox.Models;
-
-<h1>Welcome to RecipeBox!</h1>
-
-<hr>
-
-<h4>recipes</h4>
-@if (Model["recipes"].Length == 0)
-{
-  <p>No recipes have been added yet!</p>
-} 
-<ul>
-  @foreach (Recipe cat in Model["Recipe"])
-  {
-    <li>@Html.ActionLink(@cat.Name, "Details", "Recipes", new { id = @cat.CategoryId})</li>
-  }
-</ul>
-
-<h4>Recipes</h4>
-@if (Model["recipe"].Length == 0)
-{
-  <p>No recipes have been added yet!</p>
-} 
-<ul>
-  @foreach (Recipe recipe in Model["items"])
-  {
-    <li>@Html.ActionLink(@item.Description, "Details", "Items", new { id = @item.ItemId})</li>
-  }
-</ul>
-
-<hr>
-
-<p>@Html.ActionLink("Manage items", "Index", "Items")</p> 
-<p>@Html.ActionLink("Manage recipes", "Index", "recipes")</p>
-<p>@Html.ActionLink("Manage tags", "Index", "Tags")</p> -->
 
 @{
     Layout = "_Layout";
@@ -48,15 +9,28 @@
 
 <hr>
 
+<h4>Accounts</h4>
+@if (Model["accounts"].Length == 0)
+
+{
+    <p>No accounts have been added yet!</p>
+}
+@* <ul>
+@foreach (Account account in Model["account"])
+{
+  <li>@Html.ActionLink(account.userId, "Details", "Account", new { id = account account})</li>
+}
+</ul> *@
+
 <h4>Recipes</h4>
-@if (Model.Count == 0)
+@if (Model["recipes"].Length == 0)
 {
     <p>No recipes have been added yet!</p>
 }
 <ul>
-    @foreach (var recipe in Model)
+    @foreach (Recipe recipe in Model["recipes"])
     {
-        <li>@Html.ActionLink(@recipe.Name, "Details", "Recipes", new { id = recipe.RecipeId })</li>
+        <li>@Html.ActionLink(recipe.RecipeName, "Details", "Recipes", new { id = recipe.RecipeId })</li>
     }
 </ul>
 

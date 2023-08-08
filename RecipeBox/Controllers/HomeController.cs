@@ -22,8 +22,9 @@ namespace RecipeBox.Controllers
         [HttpGet("/")]
         public async Task<ActionResult> Index()
         {
+            
             Dictionary<string, object[]> model = new Dictionary<string, object[]>();
-
+        
             string userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             Account currentUser = await _userManager.FindByIdAsync(userId);
             if (currentUser != null)
@@ -34,6 +35,17 @@ namespace RecipeBox.Controllers
                 model.Add("recipes", recipes);
             }
             return View(model);
+
+            // string userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            // Account currentUser = await _userManager.FindByIdAsync(userId);
+            // if (currentUser != null)
+            // {
+            //     Recipe[] recipes = _db.Recipes
+            //         .Where(entry => entry.User.Id == currentUser.Id)
+            //         .ToArray();
+            //     model.Add("currentUsers", currentUser);
+            // }
+            // return View(model);
         }
     }
 
