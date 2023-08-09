@@ -62,13 +62,37 @@ namespace RecipeBox.Controllers
       return View(thisRecipe);
     }
 
+
+//  public ActionResult Details(int id)
+        // {
+        //     Engineer thisEngineer = _db.Engineers
+        //     .Include(engineer => engineer.JoinEntities)
+        //     .ThenInclude(join => join.Machine)
+        //     .FirstOrDefault(engineer => engineer.EngineerId == id);
+        //     return View(thisEngineer);
+        // }
+
+        // public ActionResult Edit(int id)
+        // {
+        //     Engineer thisEngineer = _db.Engineers
+        //     .FirstOrDefault(engineer => engineer.EngineerId == id);
+        //     return View(thisEngineer);
+        // }
+        // [HttpPost]
+        // public ActionResult Edit(Engineer engineer)
+        // {
+        //     _db.Engineers.Update(engineer);
+        //     _db.SaveChanges();
+        //     return RedirectToAction("Index");
+        // }
+
     public ActionResult Edit(int id)
     {
-      Recipe thisRecipe = _db.Recipes.FirstOrDefault(recipe => recipe.RecipeId == id);
-      return View (thisRecipe);
+      RecipeBox thisRecipe = _db.Recipes
+      .FirstOrDefault(recipe => recipe.RecipeId == id);
+      return View(thisRecipe);
     }
-    
-    [HttpPost]
+    [HttpsPost]
     public ActionResult Edit(Recipe recipe)
     {
       _db.Recipes.Update(recipe);
