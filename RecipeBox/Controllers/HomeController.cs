@@ -36,16 +36,6 @@ namespace RecipeBox.Controllers
             }
             return View(model);
 
-            // string userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            // Account currentUser = await _userManager.FindByIdAsync(userId);
-            // if (currentUser != null)
-            // {
-            //     Recipe[] recipes = _db.Recipes
-            //         .Where(entry => entry.User.Id == currentUser.Id)
-            //         .ToArray();
-            //     model.Add("currentUsers", currentUser);
-            // }
-            // return View(model);
         }
     }
 

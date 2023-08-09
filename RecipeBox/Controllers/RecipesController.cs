@@ -9,7 +9,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Claims;
 
-
 namespace RecipeBox.Controllers
 {
   [Authorize]
@@ -57,12 +56,12 @@ namespace RecipeBox.Controllers
     public ActionResult Details(int id)
     {
       Recipe thisRecipe = _db.Recipes
-        .Include(recipe => recipe.RecipeName)
-        .Include(Account => Account.JoinEntities)
+        .Include(recipe => recipe.JoinEntities)
         .ThenInclude(join => join.Tag)
         .FirstOrDefault(thisRecipe => thisRecipe.RecipeId == id);
       return View(thisRecipe);
     }
+
     public ActionResult Edit(int id)
     {
       Recipe thisRecipe = _db.Recipes.FirstOrDefault(recipe => recipe.RecipeId == id);
@@ -129,3 +128,12 @@ namespace RecipeBox.Controllers
     }
   }
 }
+
+
+
+      // Recipe thisRecipe = _db.Recipes
+      //   .Include(recipe => recipe.RecipeName)
+      //   .Include(Account => Account.JoinEntities)
+      //   .ThenInclude(join => join.Tag)
+      //   .FirstOrDefault(thisRecipe => thisRecipe.RecipeId == id);
+      // return View(thisRecipe);

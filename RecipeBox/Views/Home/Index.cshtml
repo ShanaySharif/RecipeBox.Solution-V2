@@ -1,41 +1,9 @@
-
 @{
     Layout = "_Layout";
 }
 
-@using RecipeBox.Models;
+<div class="text-center">
+    <h1 class="display-4"></h1>
+</div>
 
-<h1>Welcome to RecipeBox!</h1>
-
-<hr>
-
-<h4>Accounts</h4>
-@if (Model["accounts"].Length == 0)
-
-{
-    <p>No accounts have been added yet!</p>
-}
-@* <ul>
-@foreach (Account account in Model["account"])
-{
-  <li>@Html.ActionLink(account.userId, "Details", "Account", new { id = account account})</li>
-}
-</ul> *@
-
-<h4>Recipes</h4>
-@if (Model["recipes"].Length == 0)
-{
-    <p>No recipes have been added yet!</p>
-}
-<ul>
-    @foreach (Recipe recipe in Model["recipes"])
-    {
-        <li>@Html.ActionLink(recipe.RecipeName, "Details", "Recipes", new { id = recipe.RecipeId })</li>
-    }
-</ul>
-
-<hr>
-
-<p>@Html.ActionLink("Manage items", "Index", "Items")</p>
-<p>@Html.ActionLink("Manage recipes", "Index", "Recipes")</p>
-<p>@Html.ActionLink("Manage tags", "Index", "Tags")</p>
+<p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
