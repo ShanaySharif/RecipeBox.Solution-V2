@@ -1,14 +1,14 @@
-@* @{
+@{
   Layout = "_Layout";
 }
 
-@using RecipeBox.Models.Recipe
+@model RecipeBox.Models.Recipe
 
 <h2>Are you sure you want to delete this recipe?</h2>
 
-@Html.DisplayNameFor(model => model.Ingredients): @Html.DisplayFor(model => model.Ingredients)
+@Html.DisplayNameFor(model => model.RecipeName): @Html.DisplayFor(model => model.RecipeName)
 @using (Html.BeginForm())
 {
     <input type ="submit" value = "Delete" />
 }
-@Html.ActionLink("Back to the List", "Index") *@
+@Html.ActionLink("Back to the List", "Index") 
