@@ -11,6 +11,7 @@ namespace RecipeBox.Models
     public string Ingredients { get; set; }
     public string Instructions { get; set; }
     public int TagId { get; set; }
+  
     public List <RecipeTag> JoinEntities { get; set; }
     public Account User { get; set; }   
     

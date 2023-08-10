@@ -25,6 +25,8 @@ else
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Recipe", "Edit", new { id = Model.TagId })</p>
-<p>@Html.ActionLink("Add Tag", "AddTag", new { id = Model.TagId })</p>
-<p>@Html.ActionLink("Delete Recipe", "Delete", new { id = Model.TagId })</p>
+<p>@Html.ActionLink("Edit Tag", "Edit", new { id = Model.TagId })</p>
+<p>@Html.ActionLink("Add Tag", "AddRecipe", new { id = Model.TagId })</p> 
+
+<p>@Html.ActionLink("Delete Tag", "Delete", new { id = Model.TagId })</p>
+

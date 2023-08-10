@@ -1,4 +1,3 @@
-
 @{
     Layout = "_Layout";
 }
@@ -8,11 +7,11 @@
 <h2>Recipe Details</h2>
 <hr />
 <div>
-    <h3>@Html.DisplayNameFor(model => model.RecipeName): @Html.DisplayFor(model => model.RecipeName)</h3>
+    <h3>@Html.DisplayNameFor(model => model.RecipeName): @Html.DisplayFor(model => model.RecipeName)</h3> 
     <h4>Ingredients:</h4>
-    <p>@Model.Ingredients</p>
+    <p>@Model.Ingredients</p> 
     <h4>Instructions:</h4>
-    <p>@Model.Instructions</p> 
+    <p>@Model.Instructions</p>  
 </div>
 
 @if (Model.JoinEntities.Count == 0)

@@ -21,17 +21,19 @@ namespace RecipeBox.Controllers
       _userManager = userManager;
       _db = db;
     }
-    public async Task<ActionResult> Index()
+     public async Task<ActionResult> Index()
     {
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       Account currentUser = await _userManager.FindByIdAsync(userId);
       List<Recipe> userRecipes = _db.Recipes
-        .Where(entry => entry.User.Id == currentUser.Id)
+      
         .Include(RecipeBox => RecipeBox.JoinEntities)
         .ThenInclude(join => join.Tag)
         .ToList();
       return View(userRecipes);
     }
+// we will only need this line of code when the user is signed in , IF THE HW requires it, THATS IT otherwise this line of code works
+//   .Where(entry => entry.User.Id == currentUser.Id)
     public ActionResult Create()
     {
       return View();
@@ -94,14 +96,14 @@ namespace RecipeBox.Controllers
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       Account currentUser = await _userManager.FindByIdAsync(userId);
       List<Tag> userTags = _db.Tags
-        .Where(entry => entry.User.Id == currentUser.Id)
         .Include(recipe => recipe.JoinEntities)
         .ToList();
       Recipe thisRecipe = _db.Recipes.FirstOrDefault(recipe => recipe.RecipeId == id);
       ViewBag.TagId = new SelectList(userTags, "TagId", "Title");
       return View(thisRecipe);
     }
-
+// .Where(entry => entry.User.Id == currentUser.Id)
+// .Where(entry => entry.UserId == currentUser.Id)
     [HttpPost]
     public ActionResult AddTag(Recipe recipe, int tagId)
     {

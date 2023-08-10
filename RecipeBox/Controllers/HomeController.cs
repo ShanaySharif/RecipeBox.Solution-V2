@@ -22,9 +22,10 @@ namespace RecipeBox.Controllers
         [HttpGet("/")]
         public async Task<ActionResult> Index()
         {
-            
+            if (User.Identity.IsAuthenticated){
+            Tag[] tags = _db.Tags.ToArray();
             Dictionary<string, object[]> model = new Dictionary<string, object[]>();
-        
+            model.Add("tags", tags);
             string userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             Account currentUser = await _userManager.FindByIdAsync(userId);
             if (currentUser != null)
@@ -35,9 +36,10 @@ namespace RecipeBox.Controllers
                 model.Add("recipes", recipes);
             }
             return View(model);
-
+            }
+            else{
+                return View(_db.Tags.ToList());
+            }
         } 
-
     }
-
 }
