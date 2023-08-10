@@ -2,18 +2,19 @@
   Layout = "_Layout";
 }
 
-@model RecipeBox.Models.Tag
+@model RecipeBox.Models.Recipe
 
-<h4> Add a tag to this recipe: @Html.DisplayFor(model => model.TagId)</h4>
+<h4> Add: @Html.DisplayFor(model => model.TagId) to a Recipe</h4>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.TagId)
+  @Html.HiddenFor(model => model.RecipeId)
 
     @Html.Label("Select tag")
-    @Html.DropDownList("TagId")
+     <!-- @Html.DropDownList("TagId") -->
 
+@Html.DropDownListFor(model => model.TagId, ViewBag.TagId as SelectList, "Select a Tag", new { @class = "form-control" }) 
     <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to Recipe Details","Details", "Index")</p>
