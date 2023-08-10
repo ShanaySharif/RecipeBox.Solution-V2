@@ -21,12 +21,11 @@ namespace RecipeBox.Controllers
       _userManager = userManager;
       _db = db;
     }
-     public async Task<ActionResult> Index()
+  public async Task<ActionResult> Index()
     {
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       Account currentUser = await _userManager.FindByIdAsync(userId);
       List<Recipe> userRecipes = _db.Recipes
-      
         .Include(RecipeBox => RecipeBox.JoinEntities)
         .ThenInclude(join => join.Tag)
         .ToList();
@@ -34,7 +33,7 @@ namespace RecipeBox.Controllers
     }
 // we will only need this line of code when the user is signed in , IF THE HW requires it, THATS IT otherwise this line of code works
 //   .Where(entry => entry.User.Id == currentUser.Id)
-    public ActionResult Create()
+  public ActionResult Create()
     {
       return View();
     }
@@ -63,6 +62,7 @@ namespace RecipeBox.Controllers
         .FirstOrDefault(thisRecipe => thisRecipe.RecipeId == id);
       return View(thisRecipe);
     }
+    
     public ActionResult Edit(int id)
     {
       Recipe thisRecipe = _db.Recipes

@@ -6,6 +6,7 @@ namespace RecipeBox.Models
     public class Tag
     {
         public int TagId { get; set; }
+        public int RecipeId { get; set; }
 
         [Required(ErrorMessage = "This field cannot be empty. Please try again.")]
         public string Title { get; set; }

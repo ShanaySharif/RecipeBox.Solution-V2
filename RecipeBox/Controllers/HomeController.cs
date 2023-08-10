@@ -40,6 +40,6 @@ namespace RecipeBox.Controllers
             else{
                 return View(_db.Tags.ToList());
             }
-        } 
+        }
     }
 }

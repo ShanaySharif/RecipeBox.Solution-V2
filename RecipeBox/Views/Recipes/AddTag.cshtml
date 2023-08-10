@@ -11,7 +11,7 @@
   @Html.HiddenFor(model => model.RecipeId)
 
     @Html.Label("Select tag")
-     <!-- @Html.DropDownList("TagId") -->
+    <!-- @Html.DropDownList("TagId") -->
 
 @Html.DropDownListFor(model => model.TagId, ViewBag.TagId as SelectList, "Select a Tag", new { @class = "form-control" }) 
     <input type="submit" value="Save" />

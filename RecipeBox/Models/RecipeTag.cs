@@ -9,3 +9,4 @@ namespace RecipeBox.Models
         public Tag Tag { get; set; }
     }
 }
+

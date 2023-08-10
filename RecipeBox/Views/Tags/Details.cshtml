@@ -19,14 +19,13 @@ else
     <ul>
         @foreach (var join in Model.JoinEntities)
         {
-            <li>Recipe: @join.Recipe.RecipeId</li>
+            <li>Recipe: @join.Recipe.RecipeName</li>
         }
     </ul>
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Tag", "Edit", new { id = Model.TagId })</p>
-<p>@Html.ActionLink("Add Tag", "AddRecipe", new { id = Model.TagId })</p> 
-
-<p>@Html.ActionLink("Delete Tag", "Delete", new { id = Model.TagId })</p>
+<p>@Html.ActionLink("Add Recipe", "AddRecipe", new { id = Model.TagId })</p> 
+<p>@Html.ActionLink("Delete Tag", "Delete", new { id = Model.TagId })</p> 
 
